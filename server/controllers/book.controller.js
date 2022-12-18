@@ -2,12 +2,11 @@ const Book = require("../models/book.model")
 const axios = require("axios")
 
 const getBooksFromApi = async (req, res, next) => {
-	console.log(req.query)
 	let params = ""
 	if (req.query) {
 		params = generateParams(req.query)
 	}
-	console.log(params)
+
 	try {
 		await axios(`https://frappe.io/api/method/frappe-library?${params}`).then(
 			(response) => {
@@ -21,7 +20,6 @@ const getBooksFromApi = async (req, res, next) => {
 
 const addNewBook = async (req, res, next) => {
 	const params = generateParams(req.body)
-	console.log(req.body)
 
 	let bookData
 	try {

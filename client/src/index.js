@@ -16,6 +16,7 @@ import { TransactionsProvider } from "./contexts/transactions.context"
 import BooksPage from "./pages/books-page/books-page.component"
 import MembersPage from "./pages/members-page/members-page.component"
 import TransactionsPage from "./pages/transactions-page/transactions-page.component"
+import SearchPage from "./pages/search-page/search-page.component"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
 			<Route index element={<BooksPage />} />
 			<Route path="/members" element={<MembersPage />} />
 			<Route path="/transactions" element={<TransactionsPage />} />
+			<Route path="/search/:searchText" element={<SearchPage />} />
 		</Route>
 	)
 )
