@@ -1,0 +1,41 @@
+.book-form{
+    margin: 30px 0px;
+}
+
+.book-form form{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.form-field{
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+    width: 100%;
+}
+
+.form-field label{
+    flex: 1;
+}
+
+.form-field input{
+    flex: 4;
+    height: 30px;
+    padding: 0px 10px;
+}
+
+#quantity{
+    width: 30px;
+}
+
+.form-buttons{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    margin: 10px 0px;
+}
+.form-buttons button{
+    flex: 1;
+    height: 30px;
+}

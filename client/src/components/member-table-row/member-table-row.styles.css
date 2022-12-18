@@ -1,0 +1,17 @@
+
+#issue-book-form{
+    grid-column: span 4;
+    margin: auto;
+    text-align: center;
+}
+
+#member-id, #debt{
+    text-align: center;
+}
+
+
+
+#issue-book-form form{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,11 @@
+#search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-header{
+    display: grid;
+    margin: 20px 0px;
+    grid-template-columns: 10% 40% 30% 15% 5%;
+}
