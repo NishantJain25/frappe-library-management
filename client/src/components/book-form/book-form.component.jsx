@@ -16,7 +16,7 @@ const BookForm = () => {
 		setFormFields({ ...formFields, [name]: e.target.value })
 	}
 
-	const onSubmit = (e) => {
+	const onSubmit = async (e) => {
 		e.preventDefault()
 
 		if (title == "" && author == "") {

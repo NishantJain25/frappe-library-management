@@ -2,7 +2,7 @@
     
     height: 100%;
     width: 100%;
-    background-color: rgb(77, 75, 98);
+    background-color: rgb(200, 200, 200);
     padding: 20px;
     box-sizing: border-box;
     overflow-x: hidden;
@@ -21,18 +21,18 @@
 
 a{
     text-decoration: none;
-    color: black;
-    font-size: 25px;
+    color: rgb(100, 100, 100);
+    font-size: 20px;
     transition: 0.1s all;
 }
 
 .active{
-    color: rgb(159, 144, 175);
+    color: black;
     font-weight: 500;
 }
 
 .navbar-links a:hover{
-    color: white;
+    color: black;
 }
 
 

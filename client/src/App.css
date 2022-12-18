@@ -2,6 +2,7 @@
 display: grid;
 grid-template-columns: 15% 85%;
 min-height: 100vh;
+font-family: montserrat;
 }
 
 .container{
@@ -9,4 +10,16 @@ min-height: 100vh;
   flex-grow: 1;
   padding: 30px;
   box-sizing: border-box;
+}
+
+button{
+  min-height: 30px;
+  background-color: black;
+  color: white;
+  transition: 0.1s all ease;
+}
+button:hover{
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
 }

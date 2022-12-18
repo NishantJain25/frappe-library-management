@@ -1,7 +1,10 @@
 
 #issue-book-form{
+    display: flex;
+    flex-direction: column;
     grid-column: span 4;
-    margin: auto;
+    width: 50%;
+    margin: 0px auto;
     text-align: center;
 }
 
@@ -10,8 +13,13 @@
 }
 
 
+.form-field label{
+    flex: 2;
+    text-align: left;
+}
 
-#issue-book-form form{
-    display: flex;
-    flex-direction: column;
+.form-field input{
+    flex: 5;
+    height: 30px;
+    padding: 0px 10px;
 }

@@ -8,9 +8,7 @@ const TransactionTableRow = ({ transaction }) => {
 		<div className="table-row">
 			<div id="id">1</div>
 			<div id="member-name">{memberName}</div>
-			<div id="book-title">
-				{book.title} &times; {book.quantity}
-			</div>
+			<div id="book-title">{book.title}</div>
 			<div id="date-issued">{issueDate}</div>
 			<div id="penalty">{penalty}</div>
 		</div>

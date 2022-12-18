@@ -22,6 +22,7 @@ const getBooksFromApi = async (req, res, next) => {
 const addNewBook = async (req, res, next) => {
 	const params = generateParams(req.body)
 	console.log(req.body)
+
 	let bookData
 	try {
 		await axios(`https://frappe.io/api/method/frappe-library?${params}`).then(
@@ -33,27 +34,46 @@ const addNewBook = async (req, res, next) => {
 		res.send(err)
 	}
 
-	let newBook = new Book({
-		id: bookData.bookID,
-		title: bookData.title,
-		authors: bookData.authors.split("/"),
-		isbn: bookData.isbn,
-		publisher: bookData.publisher,
-		quantity: req.body.quantity,
-		issuedBy: [],
-	})
-
-	newBook
-		.save()
+	Book.findOne({ id: bookData.bookID })
 		.then((response) => {
-			res.json({
-				message: "Book added successfully",
-			})
+			if (response != null) {
+				Book.updateOne(
+					{ id: parseInt(bookData.bookID) },
+					{ $inc: { quantity: req.body.quantity } }
+				).then((res) => {
+					console.log(res)
+				})
+				res.send({
+					message: "Book already in store. Quantity updated",
+				})
+			} else {
+				let newBook = new Book({
+					id: bookData.bookID,
+					title: bookData.title,
+					authors: bookData.authors.split("/"),
+					isbn: bookData.isbn,
+					publisher: bookData.publisher,
+					quantity: req.body.quantity,
+					issuedBy: [],
+				})
+
+				newBook
+					.save()
+					.then((response) => {
+						res.send({
+							message: "Book added successfully",
+							response,
+						})
+					})
+					.catch((error) => {
+						res.json({
+							message: "an error has occured " + error,
+						})
+					})
+			}
 		})
 		.catch((error) => {
-			res.json({
-				message: "an error has occured " + error,
-			})
+			console.log(error)
 		})
 }
 
@@ -81,9 +101,8 @@ const generateParams = (request) => {
 	return paramString
 }
 
-const updateStock = async (id, name, bookID, quantity, currentDate) => {
-	console.log(typeof bookID)
-	const response = await Book.updateOne(
+const updateStock = async (id, name, bookID, currentDate) => {
+	Book.updateOne(
 		{ id: parseInt(bookID) },
 		{
 			$push: {
@@ -91,11 +110,13 @@ const updateStock = async (id, name, bookID, quantity, currentDate) => {
 					$each: [{ id: id, name: name, dateIssued: currentDate }],
 				},
 			},
-			$inc: { quantity: -quantity },
+			$inc: { quantity: -1 },
 		}
-	)
-	return response
+	).then((response) => {
+		return response
+	})
 }
+
 module.exports = {
 	getBooksFromApi,
 	addNewBook,

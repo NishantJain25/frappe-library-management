@@ -11,7 +11,7 @@ const MemberTableRow = ({ member }) => {
 	}
 
 	const [formFields, setFormFields] = useState(defaultFormFields)
-	const { title, author, quantity } = formFields
+	const { title, author } = formFields
 	const handleChange = (e) => {
 		const { name } = e.target
 		setFormFields({ ...formFields, [name]: e.target.value })
@@ -25,12 +25,8 @@ const MemberTableRow = ({ member }) => {
 			alert("Enter either title or author or both to add new book")
 			return
 		}
-		if (quantity == 0) {
-			alert("quantity cannot be zero")
-			return
-		}
 
-		const response = issueNewBook({ title, quantity, id, name })
+		const response = issueNewBook({ title, author, id, name })
 		console.log(response)
 	}
 	return (
@@ -52,12 +48,11 @@ const MemberTableRow = ({ member }) => {
 				<div id="issue-book-form">
 					<h3>Issue new book</h3>
 					<form id="issue-book-form" onSubmit={onSubmit}>
-						<label>Title</label>
-						<input name="title" value={title} onChange={handleChange} />
+						<div className="form-field">
+							<label>Title</label>
+							<input name="title" value={title} onChange={handleChange} />
+						</div>
 
-						<label>Quantity</label>
-
-						<input name="quantity" value={quantity} onChange={handleChange} />
 						<button type="submit">Submit</button>
 					</form>
 				</div>
