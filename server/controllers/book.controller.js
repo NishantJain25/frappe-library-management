@@ -3,7 +3,7 @@ const axios = require("axios")
 
 const getBooksFromApi = async (req, res, next) => {
 	let params = ""
-	if (req.query) {
+	if (req.body) {
 		params = generateParams(req.query)
 	}
 

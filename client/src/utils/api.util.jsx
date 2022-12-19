@@ -35,3 +35,24 @@ export const issueNewBook = async (formData) => {
 			}
 		})
 }
+
+export const returnBook = async (member, book) => {
+	const { id, name } = member
+	const { bookID, title } = book
+	const requestBody = {
+		id,
+		name,
+		bookID,
+		title,
+	}
+
+	await fetch("/members/returnBook", {
+		method: "post",
+		headers: {
+			"Content-type": "application/json",
+		},
+		body: JSON.stringify(requestBody),
+	})
+		.then((response) => response.json())
+		.then((data) => console.log(data))
+}

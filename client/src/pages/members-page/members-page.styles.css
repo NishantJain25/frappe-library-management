@@ -1,0 +1,14 @@
+.member-table-header{
+    display: grid;
+    grid-template-columns: 10% 30% 30% 10% 10% 10%;
+    margin: 20px 0px;
+}
+
+#search{
+    padding: 20px;
+}
+#search input{
+    height: 30px;
+    padding: 10px ;
+    box-sizing: border-box;
+}

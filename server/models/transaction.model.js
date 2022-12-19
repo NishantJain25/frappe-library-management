@@ -6,7 +6,9 @@ const transactionSchema = new schema(
 		memberID: Number,
 		memberName: String,
 		book: Object,
+		status: String,
 		issueDate: String,
+		returnDate: String,
 		penalty: Number,
 	},
 	{ timestamps: true }

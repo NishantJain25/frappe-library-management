@@ -1,3 +1,20 @@
 #id, #penalty{
-    text-align: center;
+    justify-content: center;
+}
+
+.transaction-table-row{
+    display: grid;
+    position: relative;
+    align-items: center;
+    grid-template-columns: 10% 20% 30% 10% 10% 10% 10%;
+    box-sizing: border-box;
+    padding: 20px 0px;
+    margin-bottom: 10px;
+    background-color: rgb(248, 248, 247);
+    border-radius: 15px;
+}
+.transaction-table-row div{
+    display: flex;
+    align-items: center;
+    height: 30px;
 }

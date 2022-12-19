@@ -5,33 +5,35 @@ const SideNav = () => {
 	const [className, setClassName] = useState("open")
 	return (
 		<div className={`${className} sidenav`}>
-			<ul className="navbar-links">
-				<li>
-					<NavLink
-						to="/"
-						className={({ isActive }) => (isActive ? "active" : "")}
-						end
-					>
-						Books
-					</NavLink>
-				</li>
-				<li>
-					<NavLink
-						to="/members"
-						className={({ isActive }) => (isActive ? "active" : "")}
-					>
-						Members
-					</NavLink>
-				</li>
-				<li>
-					<NavLink
-						to="/transactions"
-						className={({ isActive }) => (isActive ? "active" : "")}
-					>
-						Transactions
-					</NavLink>
-				</li>
-			</ul>
+			<div className="links-container">
+				<ul className="navbar-links">
+					<li>
+						<NavLink
+							to="/"
+							className={({ isActive }) => (isActive ? "active" : "")}
+							end
+						>
+							Books
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							to="/members"
+							className={({ isActive }) => (isActive ? "active" : "")}
+						>
+							Members
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							to="/transactions"
+							className={({ isActive }) => (isActive ? "active" : "")}
+						>
+							Transactions
+						</NavLink>
+					</li>
+				</ul>
+			</div>
 		</div>
 	)
 }

@@ -6,10 +6,14 @@ const {
 	generateParams,
 	updateStock,
 } = require("../controllers/book.controller")
-const { createTransaction } = require("../controllers/transaction.controller")
+const {
+	createTransaction,
+	createReturnTransaction,
+} = require("../controllers/transaction.controller")
 
 const getMembersFromDatabase = async (req, res, next) => {
 	Member.find()
+		.sort({ id: 1 })
 		.then((response) => {
 			res.send(response)
 		})
@@ -63,13 +67,19 @@ const issueBook = async (req, res, next) => {
 			return
 		} else if (response.quantity == 0) {
 			res.send({ message: "No stock remaining" })
-		}
-		else {
+		} else {
 			Member.findOne({
 				id: id,
-				booksIssued: { $elemMatch: { title: bookData.title } },
 			}).then((response) => {
-				if (response == null) {
+				if (response.debt == 500) {
+					res.send({
+						message: "Cannot issue book. Outstanding Debt has reached Rs. 500",
+					})
+					return
+				} else if (response.booksIssued.includes(bookData.title)) {
+					res.send({ message: "Book already issued" })
+					return
+				} else {
 					Member.updateOne(
 						{ id: id },
 						{
@@ -78,7 +88,7 @@ const issueBook = async (req, res, next) => {
 									$each: [
 										{
 											title: bookData.title,
-
+											bookID: bookData.bookID,
 											dateIssued: currentDate,
 										},
 									],
@@ -101,19 +111,47 @@ const issueBook = async (req, res, next) => {
 					updateStock(id, name, bookID, currentDate)
 
 					createTransaction(id, name, bookID, bookData.title, currentDate)
-				} else if (response.debt > 450) {
-					res.send({ message: "Debt cannot be more than Rs. 500" })
-					return
-				} else {
-					res.send({ message: "Book already issued" })
-					return
 				}
 			})
 		}
 	})
 }
+
+const returnBook = async (req, res, next) => {
+	const { id, name, bookID, title } = req.body
+
+	let currentDate = new Date().toJSON().slice(0, 10)
+	await Member.updateOne(
+		{ id: id },
+		{
+			$pull: { booksIssued: { bookID: bookID } },
+			$inc: { debt: -50 },
+		}
+	)
+		.then((response) => {
+			if (response != null) {
+				Book.updateOne(
+					{ id: bookID },
+					{
+						$pull: {
+							issuedBy: { id: id },
+						},
+						$inc: { quantity: +1 },
+					}
+				)
+					.then((response) => res.send(response))
+					.catch((error) => res.send(error))
+			}
+		})
+		.catch((error) => {
+			res.send(error)
+		})
+
+	createReturnTransaction(id, name, bookID, title, currentDate)
+}
 module.exports = {
 	getMembersFromDatabase,
 	addMember,
 	issueBook,
+	returnBook,
 }

@@ -1,3 +1,8 @@
 #penalty{
     text-align: center;
 }
+.transaction-table-header{
+    display: grid;
+    grid-template-columns: 10% 20% 30% 10% 10% 10% 10%;
+    margin: 20px 0px;
+}

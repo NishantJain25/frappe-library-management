@@ -9,11 +9,13 @@ const TransactionsPage = () => {
 	return (
 		<div className="container">
 			<h1>Transactions</h1>
-			<div className="table-header">
-				<div id="id">Transaction ID</div>
+			<div className="transaction-table-header">
+				<div id="id">Member ID</div>
 				<div id="member-name">Member Name</div>
 				<div id="book-title">Book issued</div>
 				<div id="date-issued">Date of Issue</div>
+				<div id="date-issued">Date of Return</div>
+				<div id="status">Status</div>
 				<div id="penalty">Penalty</div>
 			</div>
 			{transactions.map((transaction) => {
