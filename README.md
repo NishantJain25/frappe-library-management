@@ -19,28 +19,31 @@ Features:
 Screenshots:
 
 1. Books page
-![image](https://user-images.githubusercontent.com/74527276/208310480-b16eaadf-ebab-49ce-a7aa-5b841ad6791e.png)
+![image](https://user-images.githubusercontent.com/74527276/208481993-cbd1a3db-bd9f-4ccf-aa08-915bb1c000da.png)
 
 Add new books form
-![image](https://user-images.githubusercontent.com/74527276/208310503-1d743095-365c-4289-9864-ec8751f3ef4f.png)
+![image](https://user-images.githubusercontent.com/74527276/208482198-20e78508-d7cb-4176-a06f-0fe2026e03dc.png)
 
 2. Members page
-![image](https://user-images.githubusercontent.com/74527276/208310526-7c84d550-0dc4-4735-89ff-193a80becc15.png)
+![image](https://user-images.githubusercontent.com/74527276/208482933-73ef2f4d-0887-4f3e-8337-479c289f4589.png)
 
 Issue book form
-![image](https://user-images.githubusercontent.com/74527276/208310552-803126d6-176e-480c-a803-2ce5a526157a.png)
+![image](https://user-images.githubusercontent.com/74527276/208482849-9d09b1c1-6c05-48cb-81d3-eaccad10c087.png)
+
+Return book form
+![image](https://user-images.githubusercontent.com/74527276/208483034-a3c045f0-ca77-44f5-8819-53471d33a7c8.png)
 
 3. Transaction Page
-![image](https://user-images.githubusercontent.com/74527276/208310592-8c0d4e16-9814-42ba-af40-0e65a14b50a6.png)
+![image](https://user-images.githubusercontent.com/74527276/208483195-450147ed-79a0-461c-90c6-ad0e62097aac.png)
 
 Post transaction changes:
 
 i. Books page reflects the issuance of book by a member
-![image](https://user-images.githubusercontent.com/74527276/208310636-339f08e7-ff65-41fd-9acf-8cf7894b4656.png)
+![image](https://user-images.githubusercontent.com/74527276/208483290-c50409ce-2839-470f-a6d2-b929bb0527d7.png)
 
 ii. Members page reflects book issued by member
-![image](https://user-images.githubusercontent.com/74527276/208310660-f701fff8-a955-4f9f-b0fa-c9e84749ba90.png)
+![image](https://user-images.githubusercontent.com/74527276/208483359-0727c5cd-046b-421b-ad86-57efe1ee7ef1.png)
 
 4. Search Page
-![image](https://user-images.githubusercontent.com/74527276/208321983-55aa06dd-ea4c-4301-85e5-6da063b12d4c.png)
+![image](https://user-images.githubusercontent.com/74527276/208483468-724d3f57-0b80-4917-97d2-17f563779a40.png)
 
